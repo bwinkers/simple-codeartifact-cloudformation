@@ -49,3 +49,7 @@ aws codeartifact login --tool npm --repository private-repo --domain internal-de
 ```bash
 aws codeartifact login --tool pip --repository private-repo --domain internal-development --domain-owner xxxxxxxxxx
 ```
+
+## View packages in repo
+
+![Packages in repo](docs/images/view-packages-in-console.png)
