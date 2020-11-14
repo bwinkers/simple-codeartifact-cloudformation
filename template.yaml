@@ -1,0 +1,28 @@
+AWSTemplateFormatVersion: 2010-09-09
+Resources:
+  MyCodeArtifactDomain:
+    Type: 'AWS::CodeArtifact::Domain'
+    Properties:
+      DomainName: "internal-development"
+  MyCodeArtifactUpstreamJsRepository:
+    Type: 'AWS::CodeArtifact::Repository'
+    Properties:
+      RepositoryName: "upstream-js-repo"
+      DomainName: !GetAtt MyCodeArtifactDomain.Name
+      ExternalConnections:
+        - public:npmjs
+  MyCodeArtifactUpstreamPythonRepository:
+    Type: 'AWS::CodeArtifact::Repository'
+    Properties:
+      RepositoryName: "upstream-python-repo"
+      DomainName: !GetAtt MyCodeArtifactDomain.Name
+      ExternalConnections:
+        - public:pypi
+  MyCodeArtifactRepository:
+    Type: 'AWS::CodeArtifact::Repository'
+    Properties:
+      RepositoryName: "private-repo"
+      DomainName: !GetAtt MyCodeArtifactDomain.Name
+      Upstreams:
+        - !GetAtt MyCodeArtifactUpstreamJsRepository.Name
+        - !GetAtt MyCodeArtifactUpstreamPythonRepository.Name
