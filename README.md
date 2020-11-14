@@ -52,4 +52,8 @@ aws codeartifact login --tool pip --repository private-repo --domain internal-de
 
 ## View packages in repo
 
+Install some packages using your package mamnager.
+If the package is found in your internal repo it is used.
+If not the package is downloaded from the public repo and stored.
+
 ![Packages in repo](docs/images/view-packages-in-console.png)
