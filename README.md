@@ -44,6 +44,14 @@ Click the big orange button to get connection info fot your package manager.
 aws codeartifact login --tool npm --repository private-repo --domain internal-development --domain-owner xxxxxxxxxx
 ```
 
+### Logins are valid for 12 hours
+
+```
+aws codeartifact login --tool npm --repository private-repo --domain internal-development --domain-owner xxxxxxxxxxxx
+Successfully configured npm to use AWS CodeArtifact repository https://internal-development-xxxxxxxxxxxx.d.codeartifact.us-east-1.amazonaws.com/npm/private-repo/
+Login expires in 12 hours at 2020-11-15 22:35:00-08:00
+```
+
 ## Auth for Python
 
 ```bash
